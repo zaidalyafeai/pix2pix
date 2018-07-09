@@ -45,9 +45,6 @@ if not os.path.exists(args.hed_mat_dir):
 imgList = os.listdir(args.images_dir)
 nImgs = len(imgList)
 print('#images = %d' % nImgs)
-
-caffe.set_mode_gpu()
-caffe.set_device(args.gpu_id)
 # load net
 net = caffe.Net(args.prototxt, args.caffemodel, caffe.TEST)
 # pad border
