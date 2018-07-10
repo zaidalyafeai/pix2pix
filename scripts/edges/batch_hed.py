@@ -68,7 +68,7 @@ for i in range(nImgs):
     net.forward()
     fuse = net.blobs['sigmoid-fuse'].data[0][0, :, :]
     # get rid of the border
-    fuse = fuse[border:-border, border:-border]
+    #fuse = fuse[border:-border, border:-border]
     # save hed file to the disk
     name, ext = os.path.splitext(imgList[i])
     sio.savemat(os.path.join(args.hed_mat_dir, name + '.mat'), {'predict':fuse})
