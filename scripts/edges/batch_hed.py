@@ -39,7 +39,7 @@ import caffe
 import scipy.io as sio
 
 caffe.set_mode_gpu()	
-os.environ["CUDA_VISIBLE_DEVICES"]="0"
+
 if not os.path.exists(args.hed_mat_dir):
     print('create output directory %s' % args.hed_mat_dir)
     os.makedirs(args.hed_mat_dir)
