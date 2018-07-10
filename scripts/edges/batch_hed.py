@@ -38,6 +38,9 @@ sys.path.insert(0, caffe_root + 'python')
 import caffe
 import scipy.io as sio
 
+caffe.set_mode_gpu()	
+caffe.set_device(0)
+
 if not os.path.exists(args.hed_mat_dir):
     print('create output directory %s' % args.hed_mat_dir)
     os.makedirs(args.hed_mat_dir)
