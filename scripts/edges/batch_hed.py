@@ -54,8 +54,7 @@ net = caffe.Net(args.prototxt, args.caffemodel, caffe.TEST)
 border = args.border    
 
 for i in range(nImgs):
-    if i % 500 == 0:
-        print('processing image %d/%d' % (i, nImgs))
+    print('processing image %d/%d' % (i, nImgs))
     im = Image.open(os.path.join(args.images_dir, imgList[i]))
 
     in_ = np.array(im, dtype=np.float32)
