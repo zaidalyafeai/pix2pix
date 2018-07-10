@@ -46,7 +46,7 @@ print('#images = %d' % nImgs)
 # load net
 net = caffe.Net(args.prototxt, args.caffemodel, caffe.TEST)
 # pad border
-border = 300    
+border = 50    
 
 for i in range(nImgs):
     print('processing image %d/%d' % (i, nImgs))
