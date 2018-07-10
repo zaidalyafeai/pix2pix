@@ -28,8 +28,6 @@ def parse_args():
     return args
 
 args = parse_args()
-for arg in vars(args):
-    print('[%s] =' % arg, getattr(args, arg))
 # Make sure that caffe is on the python path:  
 caffe_root = args.caffe_root   # this file is expected to be in {caffe_root}/examples/hed/
 import sys
@@ -38,8 +36,8 @@ sys.path.insert(0, caffe_root + 'python')
 import caffe
 import scipy.io as sio
 
+caffe.set_device(0)
 caffe.set_mode_gpu()	
-
 if not os.path.exists(args.hed_mat_dir):
     print('create output directory %s' % args.hed_mat_dir)
     os.makedirs(args.hed_mat_dir)
