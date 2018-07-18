@@ -68,7 +68,7 @@ for i in range(nImgs):
     net.forward()
     fuse = net.blobs['sigmoid-fuse'].data[0][0, :, :]
     # get rid of the border
-    margin = 25 
+    margin = 15 
     fuse = fuse[2*border-margin:-margin, 2*border-margin:-margin]
     # save hed file to the disk
     name, ext = os.path.splitext(imgList[i])
