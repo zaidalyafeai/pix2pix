@@ -23,7 +23,7 @@ def parse_args():
     parser.add_argument('--images_dir', dest='images_dir', help='directory to store input photos', type=str)
     parser.add_argument('--hed_mat_dir', dest='hed_mat_dir', help='directory to store output hed edges in mat file',  type=str)
     parser.add_argument('--border', dest='border', help='padding border', type=int, default=128)
-    parser.add_argument('--gpu_id', dest='gpu_id', help='gpu id', type=int, default=1)
+    parser.add_argument('--gpu_id', dest='gpu_id', help='gpu id', type=int, default=0)
     args = parser.parse_args()
     return args
 
@@ -43,6 +43,8 @@ if not os.path.exists(args.hed_mat_dir):
 imgList = os.listdir(args.images_dir)
 nImgs = len(imgList)
 print('#images = %d' % nImgs)
+caffe.set_mode_gpu()
+caffe.set_device(args.gpu_id)
 # load net
 net = caffe.Net(args.prototxt, args.caffemodel, caffe.TEST)
 # pad border
